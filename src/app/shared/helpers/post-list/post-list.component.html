@@ -1,0 +1,24 @@
+<app-post-preview *ngFor="let post of results" [post]="post">
+
+</app-post-preview>
+
+<div class="app-post-preview" [hidden] = "!loading">
+    Loading Posts...
+</div>
+<div class="app-post-preview" [hidden]="loading || results.length">
+    No Posts are here...
+</div>
+<nav [hidden]="loading || totalPages.length <= 1">
+        <ul class="pagination">
+      
+          <li class="page-item"
+            [ngClass]="{'active': pageNumber === currentPage}"
+            *ngFor="let pageNumber of totalPages"
+            (click)="setPageTo(pageNumber)">
+      
+            <a class="page-link" >{{ pageNumber }}</a>
+      
+          </li>
+      
+        </ul>
+      </nav>

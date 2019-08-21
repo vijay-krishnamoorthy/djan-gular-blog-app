@@ -1,0 +1,23 @@
+<div class="post-preview">
+        <app-post-meta [post]="post">
+          <app-favorite-button
+            [post]="post"
+            (toggle)="onToggleFavorite($event)"
+            class="pull-xs-right">
+            {{post.favoritesCount}}
+          </app-favorite-button>
+        </app-post-meta>
+      
+        <a [routerLink]="['/post', post.slug]" class="preview-link">
+          <h1>{{ post.title }}</h1>
+          <p>{{ post.description }}</p>
+          <span>Read more...</span>
+          <ul class="tag-list">
+            <li class="tag-default tag-pill tag-outline"
+              *ngFor="let tag of post.tagList">
+              {{ tag }}
+            </li>
+          </ul>
+        </a>
+      </div>
+      
